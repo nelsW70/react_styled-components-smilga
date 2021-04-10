@@ -1,33 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
-import { ThemeProvider } from 'styled-components';
-import { redTheme, greenTheme, blueTheme } from './components/themes';
-import Navbar from './components/Navbar';
-import Button from './components/Button';
-import Content from './components/Content';
+import { Banner, SecondBanner } from './components/Banners';
 
 function App() {
-  const [theme, setTheme] = useState(redTheme);
-
-  const handleTheme = () => {
-    if (theme.primaryColor === 'red') {
-      setTheme(greenTheme);
-    } else if (theme.primaryColor === 'green') {
-      setTheme(blueTheme);
-    } else if (theme.primaryColor === 'blue') {
-      setTheme(redTheme);
-    }
-  };
-
   return (
-    <ThemeProvider theme={theme}>
-      <main>
-        <Navbar>
-          <Button onClick={handleTheme}>toggle theme</Button>
-        </Navbar>
-        <Content />
-      </main>
-    </ThemeProvider>
+    <div>
+      <Banner>
+        <h1>first banner</h1>
+      </Banner>
+      <SecondBanner>
+        <h1>second banner</h1>
+      </SecondBanner>
+    </div>
   );
 }
 
